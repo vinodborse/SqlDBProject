@@ -1,0 +1,77 @@
+apply plugin: "java"
+apply plugin: "war"
+apply plugin: "eclipse"
+apply plugin: "org.akhikhl.gretty"
+apply plugin: "de.undercouch.download"
+apply plugin: 'eclipse-wtp'
+compileJava {options.encoding = "UTF-8"}
+
+buildscript {
+  repositories {
+    jcenter()
+  }
+
+  dependencies {
+    classpath "org.akhikhl.gretty:gretty:1.2.4",
+              "de.undercouch:gradle-download-task:2.1.0"
+  }
+}
+
+repositories {
+    mavenCentral()
+  }
+  
+ext {
+    eclipseProjectUnqKey = "VT"
+    springVersion = "4.2.5.RELEASE"
+    log4j2Version = "2.5"
+    slf4jVersion  = "1.7.14"
+    fastJacksonVersion = "2.7.2"
+    embeddedTomcatVersion = "8.0.23"
+
+  }
+dependencies {
+    compile "org.springframework:spring-webmvc:${springVersion}",
+          "org.springframework:spring-core:${springVersion}",
+          "org.springframework:spring-web:${springVersion}",
+          "org.springframework:spring-tx:${springVersion}",
+          "org.springframework:spring-orm:${springVersion}",
+          "org.springframework.security:spring-security-taglibs:4.1.3.RELEASE",
+          "org.springframework:spring-context-support:3.2.0.RELEASE",
+          "org.springframework:spring-support:2.0.6",
+          "org.hibernate.javax.persistence:hibernate-jpa-2.1-api:1.0.0.Final",
+          "org.hibernate:hibernate-entitymanager:5.0.7.Final",
+          "org.apache.httpcomponents:httpclient:4.5.2",
+  		  "org.apache.velocity:velocity:1.7",
+		  "mysql:mysql-connector-java:5.1.38",
+          "org.slf4j:slf4j-api:${slf4jVersion}",
+          "org.slf4j:jcl-over-slf4j:${slf4jVersion}",
+           "com.googlecode.json-simple:json-simple:1.1.1",
+          "ch.qos.logback:logback-core:1.1.7",
+          "ch.qos.logback:logback-classic:1.1.7",
+          "org.apache.jena:jena-arq:2.13.0",
+          "org.apache.logging.log4j:log4j-core:${log4j2Version}",
+          "org.apache.logging.log4j:log4j-api:${log4j2Version}",
+          "org.apache.logging.log4j:log4j-slf4j-impl:${log4j2Version}",
+          "org.apache.logging.log4j:log4j-web:${log4j2Version}",
+          "com.fasterxml.jackson.core:jackson-core:${fastJacksonVersion}",
+          "com.fasterxml.jackson.core:jackson-databind:${fastJacksonVersion}",
+          "org.apache.shiro:shiro-core:1.2.4",
+          "org.apache.shiro:shiro-web:1.2.4",
+          "org.apache.shiro:shiro-spring:1.2.4",
+          "edu.vt.middleware:vt-password:3.1.2",
+    	  "com.sun.mail:javax.mail:1.5.5",
+          "javax.mail:javax.mail-api:1.5.5",
+           "javax.servlet:jstl:1.2",
+		  "taglibs:standard:1.1.2",
+          "commons-dbcp:commons-dbcp:1.4",
+		  "org.apache.commons:commons-exec:1.3"
+		  
+           
+ providedCompile 'javax.servlet:javax.servlet-api:3.1.0' 
+  
+    runtime 'javax.servlet:jstl:1.1.2'
+             
+}
+
+
